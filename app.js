@@ -40,6 +40,8 @@ audio_items.forEach(item =>{
         audioName.innerHTML = item.value
         audio.src = item.value;
 playbtn.style.display = "block";
+audio.play();
+playbtn.classList.add("uil-pause");
     })
 })
 var setTimee = document.getElementById("time");

@@ -34,7 +34,8 @@
 
 <div id="current" style="font-family: system-ui;">0:00</div>
     </div>
-    <div  class="slider-cont" id="sli">
+    <div  class="slider-cont" >
+      
         <div class="slider" >
             <input type="range" min="0" max="100" value="50" >
             <progress min="0" max="100" value="50"></progress>
@@ -42,7 +43,21 @@
         <div class="sliderValue">
     50
         </div>
+        <h2 style="font-family: system-ui;font-size: 1rem;">volume</h2>
        </div>
+   
+    <!-- <div  class="slider-speed" >
+      
+        <div class="speed">
+            <input type="range" min="0" max="100" value="20" id="input" >
+            <progress min="0" max="100" value="20" id="prog"></progress>
+        </div>
+        <div style="margin-left: 10px;margin-right: 5px;" class="speedValue">
+   20
+        </div>
+        <h2 style="font-family: system-ui;font-size: 1rem;">speed</h2>
+       </div> -->
+   
       <span id="play" style="display:none;margin: auto;font-size:2rem;color:var(--color-primary);cursor: pointer;"> <i class="uil uil-play"></i></span>
    <span style="margin: 10px auto;display:none;cursor: pointer;" id="stop"><i style="font-size:2rem;color:var(--color-primary);" class="uil uil-stop-circle"></i></span>
     <button class="btn btn-primary" id="reload" style="width: 30%;display:block; margin: 0 auto;padding: 18px 0;display:none;" >الاعادة </button>
@@ -62,6 +77,8 @@
 
     <script src="app.js"></script>
     <script>
+
+
       var  slider = document.querySelector("input");
         slider.oninput = function (){
            let progressBar = document.querySelector("progress");
@@ -71,6 +88,10 @@
             var audio = document.getElementById("audio");
             audio.volume = slider.value / 100;
         }
+
+
+
+ 
     
         function updateDate(){
     var date= new Date();
