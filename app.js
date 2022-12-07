@@ -12,7 +12,7 @@ stop.addEventListener("click",()=>{
 reload.addEventListener("click",()=>{
  audio.load();
 })
-
+let playbtn = document.getElementById("playbtn");
 
 var one = document.getElementById("1");
 var two = document.getElementById("2");
@@ -20,24 +20,26 @@ var three = document.getElementById("3");
 var four = document.getElementById("4");
 var five = document.getElementById("5");
 var six = document.getElementById("6");
-one.value = "3.mp3"
-two.value = "5.mp3"
-three.value = "4.mp3"
-four.value = "1.mp3"
-five.value = "2.mp3"
-six.value = "6.mp3"
+one.value = "هزتني نسمات الليالي.mp3"
+two.value = "جنة جنة جنة.mp3"
+three.value = "واقف مصدوم.mp3"
+four.value = "عاشت ايدك.mp3"
+five.value = "حلمي تحطم واختفى.mp3"
+six.value = "قدام الكل.mp3"
 
-
+var audioName = document.getElementById("name")
 
 var audio_items = document.querySelectorAll(".bt");
-
+var start = document.getElementById("start");
 audio_items.forEach(item =>{
     item.addEventListener("click",()=>{
         audio_items.forEach(item =>{
             audio.src = ""
         })
-
+   
+        audioName.innerHTML = item.value
         audio.src = item.value;
+playbtn.style.display = "block";
     })
 })
 var setTimee = document.getElementById("time");
@@ -61,3 +63,46 @@ sun.addEventListener("click",()=>{
    
 
 })
+
+// var player = document.getElementById("player");
+let progress = document.getElementById("progress");
+
+
+var playpause = function(){
+ 
+    if(audio.paused){
+        audio.play();
+    }else{
+        audio.pause();
+    }
+}
+playbtn.addEventListener("click", playpause);
+audio.onplay = function () {
+    playbtn.classList.remove("uil-play");
+    playbtn.classList.add("uil-pause");
+  }
+  audio.onpause = function () {
+    playbtn.classList.add("uil-play");
+    playbtn.classList.remove("uil-pause");
+  }
+
+  audio.ontimeupdate = function () {
+    let ct = audio.currentTime;
+    current.innerHTML = timeFormat(ct);
+    //progress
+    let duration = audio.duration;
+    prog = Math.floor((ct * 100) / duration);
+    progress.style.setProperty("--progress", prog + "%");
+ }
+
+
+ function timeFormat(ct) {
+    minutes = Math.floor(ct / 60);
+    seconds = Math.floor(ct % 60);
+
+    if (seconds < 10) {
+        seconds = "0"+seconds;
+    }
+    return minutes + ":" + seconds;
+   }
+   

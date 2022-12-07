@@ -20,6 +20,20 @@
         <h2 id="time"></h2>
     </div>
     </nav>
+    <audio id="audio" id="player" ></audio>
+    <div class="player" id="start" >
+<div class="control">
+    <i id="playbtn" class="uil uil-play"></i>
+</div>
+<div class="info">
+   <span id="name"></span>
+    <div class="bar">
+        <div id="progress"></div>
+    </div>
+</div>
+
+<div id="current" style="font-family: system-ui;">0:00</div>
+    </div>
     <div  class="slider-cont" id="sli">
         <div class="slider" >
             <input type="range" min="0" max="100" value="50" >
@@ -29,10 +43,10 @@
     50
         </div>
        </div>
-    <button id="play" style="width: 30%;display:block; margin: 4px auto;padding: 18px 0;" class="btn btn-primary">Play</button>
-    <button id="stop"style="width: 30%;display:block; margin: 10px auto;padding: 18px 0;"  class="btn btn-primary">Stop</button>
-    <button class="btn btn-primary" id="reload" style="width: 30%;display:block; margin: 0 auto;padding: 18px 0;" >الاعادة </button>
-    <audio id="audio" ></audio>
+      <span id="play" style="display:none;margin: auto;font-size:2rem;color:var(--color-primary);cursor: pointer;"> <i class="uil uil-play"></i></span>
+   <span style="margin: 10px auto;display:none;cursor: pointer;" id="stop"><i style="font-size:2rem;color:var(--color-primary);" class="uil uil-stop-circle"></i></span>
+    <button class="btn btn-primary" id="reload" style="width: 30%;display:block; margin: 0 auto;padding: 18px 0;display:none;" >الاعادة </button>
+  
 
 
 
@@ -66,5 +80,6 @@ setTimee.innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getS
 setInterval(updateDate,500)
 onload =  updateDate();
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -24,11 +24,14 @@
     border: 0;
     outline: none;
     margin: 0;
+    box-sizing: border-box;
+    transition: all 0.35s linear;
+    letter-spacing: 1px;
 }
 body{
  transition: background .5s ease-in;
     display: grid;
-    background: #e91e63;
+    background: #222;
 }
 nav{
     display: flex;
@@ -70,6 +73,63 @@ nav{
     opacity: .9;
 }
 
+.player{
+    width: 640px;
+background: rgba(255, 255, 255, 0.76);
+display: grid;
+grid-template-columns: 48px 1fr 48px;
+grid-gap: 16px;
+padding: 8px 24px;
+border-radius: 64px;
+margin: 20px auto 0 auto;
+position: relative;
+}
+.control,#current {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 16px;
+}
+#playbtn{
+    font-size: 24px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-primary);
+cursor: pointer;
+display: none;
+}
+#playbtn:hover{
+    -webkit-text-fill-color:var(--color-primary);
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+}
+#current {
+    text-align: right;
+}
+.bar{
+    --space:-4px;
+    background-color: var(--color-primary);
+    overflow: hidden;
+    left: var(--space);
+    right: var(--space);
+    top: var(--space);
+    bottom: var(--space);
+    position: absolute;
+    border-radius: 54px;
+    z-index: -2;
+}
+#progress{
+    display: block;
+    width: var(--progress,0%);
+    background-color: rgb(255, 255, 255);
+    transition: all 1s linear;
+    height: 100%;
+}
 .slider-cont{
     padding: 25px;
     background: #fff;
@@ -78,6 +138,7 @@ nav{
     align-items: center;
 margin-bottom: 20px;
 margin: 20px auto;
+border: solid 4px var(--color-primary);
 }
 .slider{
     position: relative;
@@ -100,7 +161,7 @@ z-index: 899;
     width: 20px;
     height: 20px;
     background-color: #fff;
-    border: 2px solid #e91e63;
+    border: 2px solid var(--color-primary);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -118,7 +179,7 @@ z-index: 899;
     background-color: #f0f0f0;
 }
 .slider progress::-webkit-progress-value{
-    background-color: #e91e63;
+    background-color: var(--color-primary);
 }
 .sliderValue{
     font-family: system-ui;
@@ -139,6 +200,7 @@ gap: 5px;
     padding: 12px;
     color: #fff;
     font-size: 17px;
+    font-weight: 600;
     font-family: system-ui;
     background: var(--color-primary);
     border-radius: 15px;
