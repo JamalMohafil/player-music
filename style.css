@@ -1,0 +1,161 @@
+:root {
+    --primary-color-hue: 252;
+    --dark-color-lightness: 17%;
+    --light-color-lightness: 95%;
+    --white-color-lightness: 100%;
+    --color-white: hsl(252,30%,var(--white-color-lightness));
+    --color-light: hsl(252,30%,var(--light-color-lightness));
+    --color-gray: hsl(var(--primary-color-hue),15%,65%);
+    --color-primary: hsl(var(--primary-color-hue),75%,60%);
+    --color-secodary: hsl(252,100%,90%);
+    --color-succes: hsl(120,95%,65%);
+    --color-danger: hsl(0,95%,65%);
+    --color-dark: hsl(252,30%,var(--dark-color-lightness));
+    --color-black: hsl(252,30%,10%);
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: -18rem;
+}
+*{
+    border: 0;
+    outline: none;
+    margin: 0;
+}
+body{
+ transition: background .5s ease-in;
+    display: grid;
+    background: #e91e63;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 8vh;
+    background-color: #fff;
+
+}
+#time{
+    text-align: center;
+    font-family: system-ui;
+    font-weight: 500;
+    margin: 0 120px;
+    transition: .4s;
+    cursor: pointer;
+}
+#time:hover{
+    color: #e91e63;
+}
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+
+}
+.btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+    border: none;
+    
+}
+.btn:active {
+    opacity: .9;
+}
+
+.slider-cont{
+    padding: 25px;
+    background: #fff;
+    border-radius:50px;
+    display: flex;
+    align-items: center;
+margin-bottom: 20px;
+margin: 20px auto;
+}
+.slider{
+    position: relative;
+    width: 200px;
+    height: 20px;
+  
+}
+.slider input{
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 212px;
+    height: 20px;
+    -webkit-appearance: none;
+    background-color: transparent;
+z-index: 899;
+}
+.slider input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #e91e63;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.slider progress {
+    width: 200px;
+    height: 20px;
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.slider progress::-webkit-progress-bar {
+    background-color: #f0f0f0;
+}
+.slider progress::-webkit-progress-value{
+    background-color: #e91e63;
+}
+.sliderValue{
+    font-family: system-ui;
+    width: 28px;
+    height: 20px;
+    margin-left: 10px;
+text-align: center;
+
+}
+.btnBig{
+margin: 15px 30px ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+text-align: center;
+gap: 5px;
+}
+.bt{
+    padding: 12px;
+    color: #fff;
+    font-size: 17px;
+    font-family: system-ui;
+    background: var(--color-primary);
+    border-radius: 15px;
+    cursor: pointer;
+}
+#moon,#sun{
+    cursor: pointer;
+    font-size: 1.8rem;
+transition: .3s;
+}
+#sun{
+    margin-left:  140px;
+    margin-right: 8px;
+}
+#sun:hover{
+color: gold;
+}
+#moon:hover{
+    color: rgb(160, 0, 0);
+}
