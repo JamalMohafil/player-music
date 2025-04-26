@@ -1,6 +1,5 @@
 ━┳━  → °My Channel  ←  ━┳━
-https://youtube.com/JAMALGOVING
+https://youtube.com/@jamal_mohafil
 
-Brother: Mohamed Khaled:blue_heart:
 <( → ° My Skills :round_pushpin:: ← )>
 https://jamalmohafil.github.io/VC/
