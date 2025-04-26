@@ -4,101 +4,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>مشغل الأغاني</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
 </head>
 <body>
-
     <nav id="nav">
         <div class="night">
             <i class="uil uil-sun" id="sun"></i>
             <i class="uil uil-moon" id="moon"></i>
         </div>
         <div class="title">
-        <h2 id="time"></h2>
-    </div>
+            <h2 id="time"></h2>
+        </div>
     </nav>
-    <audio id="audio" id="player" ></audio>
-    <div class="player" id="start" >
-<div class="control">
-    <i id="playbtn" class="uil uil-play"></i>
-</div>
-<div class="info">
-   <span id="name"></span>
-    <div class="bar">
-        <div id="progress"></div>
+    <audio id="audio"></audio>
+    <div class="player" id="start">
+        <div class="control">
+            <i id="playbtn" class="uil uil-play"></i>
+        </div>
+        <div class="info">
+            <span id="name"></span>
+            <div class="bar">
+                <div id="progress"></div>
+            </div>
+        </div>
+        <div id="current" style="font-family: system-ui;">0:00</div>
     </div>
-</div>
-
-<div id="current" style="font-family: system-ui;">0:00</div>
-    </div>
-    <div  class="slider-cont" >
-      
-        <div class="slider" >
-            <input type="range" min="0" max="100" value="50" >
+    <div class="slider-cont">
+        <div class="slider">
+            <input type="range" min="0" max="100" value="50" id="volume-slider">
             <progress min="0" max="100" value="50"></progress>
         </div>
         <div class="sliderValue">
-    50
+            50
         </div>
-        <h2 style="font-family: system-ui;font-size: 1rem;">volume</h2>
-       </div>
+        <h2 style="font-family: system-ui; font-size: 1rem;">volume</h2>
+    </div>
    
-    <!-- <div  class="slider-speed" >
-      
+    <!-- <div class="slider-speed">
         <div class="speed">
-            <input type="range" min="0" max="100" value="20" id="input" >
+            <input type="range" min="0" max="100" value="20" id="input">
             <progress min="0" max="100" value="20" id="prog"></progress>
         </div>
-        <div style="margin-left: 10px;margin-right: 5px;" class="speedValue">
-   20
+        <div style="margin-left: 10px; margin-right: 5px;" class="speedValue">
+            20
         </div>
-        <h2 style="font-family: system-ui;font-size: 1rem;">speed</h2>
-       </div> -->
+        <h2 style="font-family: system-ui; font-size: 1rem;">speed</h2>
+    </div> -->
    
-      <span id="play" style="display:none;margin: auto;font-size:2rem;color:var(--color-primary);cursor: pointer;"> <i class="uil uil-play"></i></span>
-   <span style="margin: 10px auto;display:none;cursor: pointer;" id="stop"><i style="font-size:2rem;color:var(--color-primary);" class="uil uil-stop-circle"></i></span>
-    <button class="btn btn-primary" id="reload" style="width: 30%;display:block; margin: 0 auto;padding: 18px 0;display:none;" >الاعادة </button>
+    <span id="play" style="display: none; margin: auto; font-size: 2rem; color: var(--color-primary); cursor: pointer;">
+        <i class="uil uil-play"></i>
+    </span>
+    <span style="margin: 10px auto; display: none; cursor: pointer;" id="stop">
+        <i style="font-size: 2rem; color: var(--color-primary);" class="uil uil-stop-circle"></i>
+    </span>
+    <button class="btn btn-primary" id="reload" style="width: 30%; margin: 0 auto; padding: 18px 0; display: none;">الاعادة</button>
   
-
-
-.
     <div class="btnBig">
- <button class="bt" id="1">هزتني </button>
- <button  class="bt" id="3">واقف مصدوم </button>
- <button  class="bt" id="4"> عاشت ايدك </button>
- <button class="bt" id="5">  حلمي تحطم </button>
- <button class="bt" id="6">  قدام الكل </button>
-</div>
-
-
+        <button class="bt" id="1">هزتني</button>
+        <button class="bt" id="2">جنة جنة</button>
+        <button class="bt" id="3">واقف مصدوم</button>
+        <button class="bt" id="4">عاشت ايدك</button>
+        <button class="bt" id="5">حلمي تحطم</button>
+        <button class="bt" id="6">قدام الكل</button>
+    </div>
+    
     <script src="app.js"></script>
     <script>
-
-
-      var  slider = document.querySelector("input");
-        slider.oninput = function (){
-           let progressBar = document.querySelector("progress");
+        var slider = document.getElementById("volume-slider");
+        slider.oninput = function() {
+            let progressBar = document.querySelector("progress");
             progressBar.value = slider.value;
             var sliderValue = document.querySelector(".sliderValue");
-            sliderValue.innerHTML = slider.value
+            sliderValue.innerHTML = slider.value;
             var audio = document.getElementById("audio");
             audio.volume = slider.value / 100;
         }
-
-
-
  
-    
-        function updateDate(){
-    var date= new Date();
-var setTimee = document.getElementById("time");
-setTimee.innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-}
-setInterval(updateDate,500)
-onload =  updateDate();
+        function updateDate() {
+            var date = new Date();
+            var setTimee = document.getElementById("time");
+            setTimee.innerHTML = 
+                (date.getHours() < 10 ? "0" : "") + date.getHours() + ":" + 
+                (date.getMinutes() < 10 ? "0" : "") + date.getMinutes() + ":" + 
+                (date.getSeconds() < 10 ? "0" : "") + date.getSeconds();
+        }
+        
+        setInterval(updateDate, 500);
+        window.onload = updateDate;
     </script>
     <script src="main.js"></script>
 </body>
